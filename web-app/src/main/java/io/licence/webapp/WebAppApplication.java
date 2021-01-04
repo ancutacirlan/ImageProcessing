@@ -2,9 +2,10 @@ package io.licence.webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-//@EnableEurekaClient
+@EnableJpaAuditing
 public class WebAppApplication {
 
 	public static void main(String[] args) {
