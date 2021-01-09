@@ -16,5 +16,4 @@ public class ImageSearchWrapperApplication {
 	public RestTemplate restTemplate(){
 		return new RestTemplate();
 	}
-
 }

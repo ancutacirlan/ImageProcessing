@@ -1,12 +1,10 @@
 package io.licence.imagesearchwrapper.unsplash;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
+import java.io.IOException;
 
 
 @RestController
@@ -30,6 +28,11 @@ public class ImageController {
     public Image getImageById(@PathVariable("imageId") String imageId) {
        return imageService.getImageById(imageId);
 
+    }
+
+    @GetMapping("save/{imageId}")
+    public String saveImages (@PathVariable("imageId") String imageId) throws IOException {
+        return imageService.saveImages(imageId);
     }
 
 
