@@ -1,4 +1,4 @@
-package io.licence.imagesearchwrapper.amazons3.config;
+package io.licence.imagesearchwrapper.amazons3;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -16,7 +16,7 @@ public class S3Config {
  
 	@Value("${amazon.secretKey}")
 	private String awsKey;
-	
+
 	@Value("${amazon.region}")
 	private String region;
 
