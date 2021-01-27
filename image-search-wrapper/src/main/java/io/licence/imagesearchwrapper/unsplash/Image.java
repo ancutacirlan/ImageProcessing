@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,7 +14,6 @@ import lombok.Setter;
 public class Image {
 
     private String id;
-    private String description;
     private Integer width;
     private Integer height;
     private String color;

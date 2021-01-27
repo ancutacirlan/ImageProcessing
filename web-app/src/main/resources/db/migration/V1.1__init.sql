@@ -10,3 +10,9 @@ create table users
     provider_id varchar,
     primary key (id)
 );
+
+create table images
+(
+    id serial primary key ,
+    url varchar not null
+)

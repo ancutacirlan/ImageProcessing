@@ -2,21 +2,19 @@ package io.licence.imagesearchwrapper.unsplash;
 
 import com.amazonaws.util.IOUtils;
 import io.licence.imagesearchwrapper.amazon_s3_storage.AmazonClientService;
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
-import java.nio.file.Files;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ImageService {
@@ -52,7 +50,7 @@ public class ImageService {
 
     String saveImages(String imageId) throws IOException {
         Image image = getImageById(imageId);
-        String pathname = LOCAL_PATH+imageId.toString();
+        String pathname = LOCAL_PATH+ imageId;
         String url = image.getUrls().getRaw();
         URL imageUrl = new URL(url);
         BufferedImage img = ImageIO.read(imageUrl);
@@ -65,8 +63,20 @@ public class ImageService {
         var variable = amazonClientService.uploadFile(multipartFile);
         file.delete();
         return variable;
-
     }
+
+    List<String> saveAllImages(String query){
+        Results images=  getImageInfo(query);
+        return images.results.stream().map(image -> {
+            try {
+                return saveImages(image.getId());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }).collect(Collectors.toList());
+    }
+
 
 
 
