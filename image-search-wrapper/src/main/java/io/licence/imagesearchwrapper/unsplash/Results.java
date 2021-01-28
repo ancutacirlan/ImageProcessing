@@ -1,23 +1,18 @@
 package io.licence.imagesearchwrapper.unsplash;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.List;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Results {
 
     List<Image> results;
 
-    public Results(List<Image> results) {
-        this.results = results;
-    }
-
-    public Results() {
-    }
-
-    public List<Image> getResults() {
-        return results;
-    }
-
-    public void setResults(List<Image> results) {
-        this.results = results;
-    }
 }

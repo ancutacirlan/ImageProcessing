@@ -25,18 +25,18 @@ public class ImageController {
         return imageService.getImageInfo(query);
     }
 
-    @GetMapping("/{imageId}")
+    @GetMapping(path = "/{imageId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public Image getImageById(@PathVariable("imageId") String imageId) {
        return imageService.getImageById(imageId);
 
     }
 
-    @GetMapping("save/id/{imageId}")
+    @GetMapping(path = "save/id/{imageId}",produces = MediaType.APPLICATION_JSON_VALUE)
     public String saveImages (@PathVariable("imageId") String imageId) throws IOException {
         return imageService.saveImages(imageId);
     }
 
-    @GetMapping("save/query/{query}")
+    @GetMapping(path = "save/query/{query}",produces = MediaType.APPLICATION_JSON_VALUE)
     public List<String> saveAllImages (@PathVariable("query") String query) throws IOException {
         return imageService.saveAllImages(query);
     }

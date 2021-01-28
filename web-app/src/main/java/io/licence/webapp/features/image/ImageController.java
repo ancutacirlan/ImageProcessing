@@ -22,6 +22,7 @@ public class ImageController {
         return imageService.create(idImage);
     }
 
+
     @PostMapping(path ="/query/{query}")
     public List<Image> saveAll(@PathVariable("query") String query) {
         return imageService.createAll(query);

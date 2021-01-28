@@ -21,6 +21,4 @@ public class AwsS3Controller {
         return amazonClientService.uploadFile(file);
     }
 
-
-
 }

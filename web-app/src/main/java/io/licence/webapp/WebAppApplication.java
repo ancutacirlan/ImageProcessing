@@ -20,9 +20,9 @@ public class WebAppApplication {
 		SpringApplication.run(WebAppApplication.class, args);
 	}
 
-	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
+//	@Bean
+//	public RestTemplate restTemplate(){
+//		return new RestTemplate();
+//	}
 
 }
