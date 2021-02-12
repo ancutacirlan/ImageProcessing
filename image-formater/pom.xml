@@ -48,7 +48,33 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>javaxt</groupId>
+			<artifactId>javaxt-core</artifactId>
+			<version>1.7.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openpnp</groupId>
+			<artifactId>opencv</artifactId>
+			<version>4.3.0-3</version>
+		</dependency>
+		<dependency>
+			<groupId>nu.pattern</groupId>
+			<artifactId>opencv</artifactId>
+			<version>2.4.9-4</version>
+		</dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-greengrass</artifactId>
+            <version>1.11.825</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
 
 	<dependencyManagement>
 		<dependencies>
@@ -76,6 +102,10 @@
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
+		</repository>
+		<repository>
+			<id>javaxt.com</id>
+			<url>http://www.javaxt.com/maven</url>
 		</repository>
 	</repositories>
 
