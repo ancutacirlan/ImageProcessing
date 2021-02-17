@@ -1,15 +1,18 @@
 package io.licence.webapp.features.user;
+import io.licence.webapp.features.user.utils.AuthProvider;
+import io.licence.webapp.utils.Audit;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends Audit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

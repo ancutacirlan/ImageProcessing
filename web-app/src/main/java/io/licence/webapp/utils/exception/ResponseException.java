@@ -1,5 +1,7 @@
-package io.licence.webapp.utils;
+package io.licence.webapp.utils.exception;
 
+import io.licence.webapp.utils.ApiError;
+import io.licence.webapp.utils.exception.InvalidException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

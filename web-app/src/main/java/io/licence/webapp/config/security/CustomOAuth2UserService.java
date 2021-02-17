@@ -1,9 +1,9 @@
 package io.licence.webapp.config.security;
 
-import io.licence.webapp.exception.OAuth2AuthenticationProcessingException;
+import io.licence.webapp.utils.exception.OAuth2AuthenticationProcessingException;
 import io.licence.webapp.features.authentification.UserPrincipal;
 import io.licence.webapp.features.authentification.oauth2.OAuth2UserInfoFactory;
-import io.licence.webapp.features.user.AuthProvider;
+import io.licence.webapp.features.user.utils.AuthProvider;
 import io.licence.webapp.features.user.User;
 import io.licence.webapp.features.user.UserRepository;
 import io.licence.webapp.features.authentification.oauth2.OAuth2UserInfo;

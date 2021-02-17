@@ -1,4 +1,4 @@
-package io.licence.webapp.exception;
+package io.licence.webapp.utils.exception;
 
 import org.springframework.security.core.AuthenticationException;
 

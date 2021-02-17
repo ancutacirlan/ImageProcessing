@@ -1,4 +1,4 @@
-package io.licence.webapp.features.user;
+package io.licence.webapp.features.user.utils;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 

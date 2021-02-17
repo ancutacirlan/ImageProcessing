@@ -1,6 +1,6 @@
 package io.licence.webapp.config.security;
 
-import io.licence.webapp.exception.ResourceNotFoundException;
+import io.licence.webapp.utils.exception.ResourceNotFoundException;
 import io.licence.webapp.features.authentification.UserPrincipal;
 import io.licence.webapp.features.user.User;
 import io.licence.webapp.features.user.UserRepository;

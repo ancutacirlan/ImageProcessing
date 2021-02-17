@@ -1,4 +1,4 @@
-package io.licence.webapp.utils;
+package io.licence.webapp.utils.exception;
 
 import javax.persistence.PersistenceException;
 

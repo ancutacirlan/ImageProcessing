@@ -1,8 +1,8 @@
 package io.licence.webapp.features.authentification.oauth2;
 
 
-import io.licence.webapp.exception.OAuth2AuthenticationProcessingException;
-import io.licence.webapp.features.user.AuthProvider;
+import io.licence.webapp.utils.exception.OAuth2AuthenticationProcessingException;
+import io.licence.webapp.features.user.utils.AuthProvider;
 
 import java.util.Map;
 

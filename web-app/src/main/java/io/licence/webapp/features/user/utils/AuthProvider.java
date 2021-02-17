@@ -1,4 +1,4 @@
-package io.licence.webapp.features.user;
+package io.licence.webapp.features.user.utils;
 
 public enum  AuthProvider {
     local,

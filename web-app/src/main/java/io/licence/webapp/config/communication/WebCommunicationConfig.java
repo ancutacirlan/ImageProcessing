@@ -1,7 +1,7 @@
 package io.licence.webapp.config.communication;
 
-import io.licence.webapp.config.communication.ApiConfiguration;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.Base64Utils;
@@ -15,9 +15,15 @@ public class WebCommunicationConfig {
     private final ApiConfiguration apiConfig;
 
     @Bean
-    public ApiClient restTemplate() {
-        RestTemplate restTemplate = new RestTemplate();
-        ApiClient apiClient = new ApiClient(restTemplate);
+    @LoadBalanced
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
+	}
+
+
+    @Bean
+    public ApiClient apiClient() {
+        ApiClient apiClient = new ApiClient(restTemplate());
         apiClient.setBasePath(apiConfig.getBasePath());
 
         return apiClient;

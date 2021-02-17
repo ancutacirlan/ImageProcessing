@@ -1,7 +1,8 @@
 package io.licence.webapp.features.user;
 
-import io.licence.webapp.exception.BadRequestException;
+import io.licence.webapp.utils.exception.BadRequestException;
 import io.licence.webapp.config.security.TokenProvider;
+import io.licence.webapp.features.user.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

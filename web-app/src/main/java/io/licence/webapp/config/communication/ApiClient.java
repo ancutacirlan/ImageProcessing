@@ -1,5 +1,6 @@
 package io.licence.webapp.config.communication;
 
+import io.licence.webapp.utils.unsplash.Results;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +38,14 @@ public class ApiClient {
 
         return restTemplate
                 .exchange(requestEntity, String[].class).getBody();
+    }
+
+    public Results invokeApiResults(String path, String credentials) {
+        var variable = ComponentBuilder(path, credentials);
+        RequestEntity<Object> requestEntity = variable.body(null);
+
+        return restTemplate
+                .exchange(requestEntity, Results.class).getBody();
     }
 
     private RequestEntity.BodyBuilder ComponentBuilder(String path, String credentials) {
