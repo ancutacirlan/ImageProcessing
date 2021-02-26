@@ -3,6 +3,8 @@ package io.licence.imageformater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @RestController
@@ -23,7 +25,6 @@ public class ImageController {
         return imageService.crop(pathImage,x,y,width,height);
     }
 
-
     @GetMapping(path = "/rotate", produces = MediaType.APPLICATION_JSON_VALUE,params={"pathImage","angle"})
     public String getRotateImage(@RequestParam(value = "pathImage") String pathImage,
                                  @RequestParam(value = "angle") int angle ) throws IOException {
@@ -37,8 +38,8 @@ public class ImageController {
         return imageService.resize(pathImage,width,height);
     }
 
-    @GetMapping(path = "/gray/filter", produces = MediaType.APPLICATION_JSON_VALUE,params={"pathImage"})
-    public String getGrayFilter(@RequestParam(value = "pathImage") String pathImage) throws IOException {
+    @GetMapping(path = "/gray/filter/{pathImage}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getGrayFilter(@PathVariable("pathImage") String pathImage) throws IOException {
         return imageService.grayFilter(pathImage);
 
     }
@@ -127,8 +128,8 @@ public class ImageController {
     }
 
     @GetMapping(path = "/hello", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String hello() {
-        return "Hello";
+    public String hello(@PathVariable("pathImage") String pathImage) {
+        return "Hello"+pathImage;
 
     }
 

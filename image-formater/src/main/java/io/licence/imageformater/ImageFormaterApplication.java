@@ -16,3 +16,5 @@ public class ImageFormaterApplication {
 		SpringApplication.run(ImageFormaterApplication.class, args);
 	}
 }
+
+

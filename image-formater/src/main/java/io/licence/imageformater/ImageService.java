@@ -9,7 +9,6 @@ import org.opencv.imgproc.Imgproc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -61,9 +60,7 @@ public class ImageService {
 
     String rotate(String pathImage, int angle) throws IOException {
 
-        long startTimeloadlibrary = System.currentTimeMillis();
         OpenCV.loadShared();
-        long endTimeLoadLibrary = System.currentTimeMillis();
         long startTimereadImage = System.currentTimeMillis();
         BufferedImage originalImage = ImageIO.read(new URL(pathImage));
         long endTimereadImage = System.currentTimeMillis();
@@ -156,13 +153,9 @@ public class ImageService {
 
     String sepiaFilter(String pathImage) throws IOException {
 
-        long startTimereadImage = System.currentTimeMillis();
         BufferedImage originalImage = ImageIO.read(new URL(pathImage));
-        long endTimereadImage = System.currentTimeMillis();
         int width = originalImage.getWidth();
         int height = originalImage.getHeight();
-
-        long startTimesepiaImage = System.currentTimeMillis();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int p = originalImage.getRGB(x, y);
@@ -180,23 +173,9 @@ public class ImageService {
                 originalImage.setRGB(x, y, p);
             }
         }
-        long endTimesepiaImage = System.currentTimeMillis();
-        long startTimeconvertImage = System.currentTimeMillis();
         javaxt.io.Image image = new javaxt.io.Image(originalImage);
-        long endTimeconvertImage = System.currentTimeMillis();
-        long startTimesavelocalImage = System.currentTimeMillis();
         image.saveAs(LOCAL_PATH + "sepia.png");
-        long endTimesavelocalImage = System.currentTimeMillis();
-        long startTimesaveBucketImage = System.currentTimeMillis();
         var variable = apiClient.invokeApi(PATH + "sepia.png", webConfigurer.getAuthorization());
-        long endTimesaveBucketImage = System.currentTimeMillis();
-        System.out.println("------------------------");
-        System.out.println(endTimereadImage - startTimereadImage + ": time read image");
-        System.out.println(endTimeconvertImage - startTimeconvertImage + ": time convert image");
-        System.out.println(endTimesepiaImage - startTimesepiaImage + ": time sepia image");
-        System.out.println(endTimesavelocalImage - startTimesavelocalImage + ": time save local image");
-        System.out.println(endTimesaveBucketImage - startTimesaveBucketImage + ": time save bucket image");
-        System.out.println("------------------------");
         return variable;
     }
 
